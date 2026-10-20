@@ -1,0 +1,6 @@
+=== RUN   TestAlmanacExternalWorkbench
+    zz_almanac_external_test.go:30: PASS almanac actual Aide tools and workbench
+
+--- PASS: TestAlmanacExternalWorkbench (12.21s)
+PASS
+ok  	aide/internal/server	13.329s

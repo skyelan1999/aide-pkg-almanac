@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "scope": "Actual Aide testApp ZIP import, executable tools and sandboxed workbench/MessagePort bridge, no real models or user data",
+  "checks": [
+    "Shanghai today under Los Angeles browser timezone",
+    "Spring Festival/lunar/yi-ji from real host tools",
+    "29/31 day month, navigation, keyboard focus",
+    "leap lunar month, Qingming, extra details",
+    "1901/2099 navigation boundaries",
+    "1440/390 comfort/blue light/dark, no horizontal overflow",
+    "manual theme and today",
+    "tool failure message/retry recovery",
+    "workbench close, no external browser requests or page errors"
+  ],
+  "errors": []
+}

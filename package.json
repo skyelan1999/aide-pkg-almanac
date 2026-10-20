@@ -1,0 +1,1 @@
+{"name":"aide-pkg-almanac","version":"1.0.0","private":true,"license":"MIT","description":"Offline Gregorian, Chinese lunar calendar and traditional almanac for Aide","scripts":{"build":"node scripts/build.cjs","test":"node --test test/*.test.cjs"}}

@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "hostCommit": "2985453d014f85ee08420112947405f8c360aac8",
+  "unitTests": {
+    "status": "PASS",
+    "groups": 7,
+    "command": "npm test"
+  },
+  "actualHost": {
+    "status": "PASS",
+    "command": "AIDE_SOURCE=/workspace/aide bash scripts/verify-host.sh",
+    "scope": "Disposable Aide testApp import, executable tools, sandboxed workbench bridge and Chromium under Go race; no real models/user data"
+  },
+  "package": {
+    "path": "packages/v1.0.0/aide-pkg-almanac-v1.0.0.zip",
+    "sha256": "59fb35797d032fbb91e4e09e793a2fe54911eca8e2b4de999308cf5ca14512a6",
+    "bytes": 129342
+  },
+  "runtimeSha256": {
+    "index.js": "b8dd73ba9e774c50372111ef67efe032d39dd71b85ea953a0fd4cf2bbe1b173b",
+    "manifest.json": "f327b2cac1871d92d12717579e21955347efa37aac4adabd43e15799a859a817",
+    "lib/almanac.js": "eb32dec8c5706d98aaf518ae61fa1d0e801456c69d4f00f7c156736e3e02b51a",
+    "workbench.html": "560c6fc098fc9979ee607c66b074a4e4b54d0512f03868c83d452ba8b3c7930e",
+    "vendor/lunar.js": "9750324bfe1aa63c146f8c72b1143df924466c11c8a5277d7d9225c541a18aaa"
+  },
+  "unverified": [
+    "Windows/macOS physical runtime",
+    "production Aide deployment",
+    "real paid model end-to-end"
+  ]
+}
