@@ -1,0 +1,22 @@
+{
+  "plugin": "almanac",
+  "version": "1.0.0",
+  "sourceCommit": "4356a97dc107f6d25fafafcc7fa832ee1c399c86",
+  "sourcePushed": true,
+  "ci": "PASS: 39444167218 and 39444099951",
+  "release": {
+    "url": "https://github.com/skyelan1999/aide-pkg-almanac/releases/tag/v1.0.0",
+    "published": true,
+    "draft": false,
+    "uploadedAssets": [],
+    "distribution": "Release notes link to immutable source-commit ZIP and SHA256SUMS; direct upload returned HTTP401. Public ZIP and SHA256SUMS fetched and verified."
+  },
+  "packageSha256": "59fb35797d032fbb91e4e09e793a2fe54911eca8e2b4de999308cf5ca14512a6",
+  "market": {
+    "commit": "2c0dbdc2780bc087a2f2e17a83867ae0547efbc8",
+    "url": "https://skyelan1999.github.io/aide-pkg-shop/",
+    "pagesWorkflow": 39444358553,
+    "status": "success"
+  },
+  "hostDeployment": "Not changed; requires Aide protocol1 workbench tool bridge."
+}
