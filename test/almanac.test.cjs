@@ -31,3 +31,8 @@ test('单文件入口校验不依赖包内其他文件',()=>{
  const os=require('node:os'),path=require('node:path'),dir=fs.mkdtempSync(path.join(os.tmpdir(),'almanac-entry-'));
  try{const file=path.join(dir,'index.js');fs.copyFileSync(path.join(__dirname,'../index.js'),file);const plugin=require(file);assert.equal(plugin.name,'almanac');assert.equal(typeof plugin.apply,'function');}finally{fs.rmSync(dir,{recursive:true,force:true});}
 });
+
+test('官方与引擎差异不伪造精确时刻，历法和黄历按同一日期月界',()=>{
+ const historical=a.query({date:'1917-12-07'});assert.equal(historical.solarTerms.today,'大雪');assert.equal(historical.solarTerms.previous.date,'1917-12-07');assert.equal(historical.solarTerms.previous.time,null);assert.equal(historical.solarTerms.previous.computedDate,'1917-12-08');assert.equal(historical.ganzhi.month,'壬子');assert.equal(historical.checks.monthGanZhiMatchesReference,false);
+ const future=a.query({date:'2057-09-28'});assert.equal(future.lunar.month,9);assert.equal(future.lunar.day,1);assert.equal(future.checks.lunarEngineMatchesReference,false);assert.ok(future.warnings.length);assert.ok(a.query({date:'2057-10-06'}).festivals.includes('重阳节'));
+});

@@ -1,0 +1,48 @@
+{
+  "version": "1.1.0",
+  "hostCommit": "a0ffa35a8d0121374049df17b5e5d375009bd8f6",
+  "actualHost": {
+    "status": "PASS",
+    "command": "source /workspace/.aide-cloud/env.sh; AIDE_SOURCE=/workspace/aide bash /workspace/aide-pkg-almanac/scripts/verify-host.sh",
+    "scope": "Disposable Aide testApp, three actual ZIP imports and executable tools, Chromium sandbox iframe and MessagePort bridge under Go race; final run 15.391s; no real models/user data"
+  },
+  "browser": {
+    "status": "PASS",
+    "scope": "Actual Aide testApp ZIP import, executable tools and sandboxed workbench/MessagePort bridge, no real models or user data",
+    "checks": [
+      "Shanghai today under Los Angeles browser timezone",
+      "Spring Festival/lunar/yi-ji from real host tools",
+      "29/31 day month, navigation, keyboard focus",
+      "leap lunar month, Qingming, extra details",
+      "1901/2099 navigation boundaries",
+      "1440/390 comfort/blue light/dark, no horizontal overflow",
+      "manual theme and today",
+      "LunarCalendar official leap/2033/2057 dates, calendar keyboard and eight viewport/themes",
+      "CurrentTime ticking, timezones, ISO week, invalid zone recovery and eight viewport/themes",
+      "CurrentTime close stops calls",
+      "tool failure message/retry recovery",
+      "workbench close, no external browser requests or page errors"
+    ],
+    "errors": []
+  },
+  "package": {
+    "path": "packages/v1.1.0/aide-pkg-almanac-v1.1.0.zip",
+    "sha256": "5f82efc98e80feeab726038ca4e1fb4e09d8f79ff28af2981a0898fade26fd56",
+    "bytes": 171917,
+    "reproducible": true
+  },
+  "runtimeSha256": {
+    "index.js": "b8dd73ba9e774c50372111ef67efe032d39dd71b85ea953a0fd4cf2bbe1b173b",
+    "manifest.json": "8d8b4c1b6f124ee172d75cc799a382ff8d209e54fe6f3da5fda421f42a650c5a",
+    "workbench.html": "5b477c576730b5aff32f8190ab14219dde83f1acf99aa3ee4725f9b0d3a36eaf",
+    "lib/calendar.js": "9ec16ffc4d2a130f7c5b250bb84ed7d3b2dedeb79e580868840798980b56814d",
+    "lib/almanac.js": "17dcf5255af49404e9137ee48ddca9e5c9845ce809191fb98edfaff49819d1cc",
+    "vendor/hko-reference.json": "b80168af3dcdc37b8ed4268a075f6d942e840b1ab3c06d3ccbdc9b72a1522bc0",
+    "vendor/lunar.js": "9750324bfe1aa63c146f8c72b1143df924466c11c8a5277d7d9225c541a18aaa"
+  },
+  "unverified": [
+    "Windows/macOS physical runtime",
+    "Production Aide deployment",
+    "Paid model end-to-end"
+  ]
+}

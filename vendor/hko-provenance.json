@@ -1,0 +1,10 @@
+{
+  "source": "https://www.hko.gov.hk/tc/gts/time/conversion.htm",
+  "terms": "https://data.gov.hk/en/terms-and-conditions",
+  "attribution": "©香港特别行政区政府／香港天文台；离线提取日期事实，非官方认证产品。",
+  "retrieved": "2026-10-21",
+  "sha256": "b80168af3dcdc37b8ed4268a075f6d942e840b1ab3c06d3ccbdc9b72a1522bc0",
+  "referenceDaysSha256": "a346304cef33d46cf7670d4d3d595eacfd941da82d9d1066d1da76254795f1a8",
+  "sourceFiles": 200,
+  "comparedDays": 72684
+}

@@ -14,10 +14,18 @@ import (
 func TestAlmanacExternalWorkbench(t *testing.T) {
  root:=os.Getenv("ALMANAC_SOURCE");if root=="" {t.Skip("external plugin fixture")}
  a:=testApp(t)
- archive,err:=zip.OpenReader(filepath.Join(root,"packages/v1.0.0/aide-pkg-almanac-v1.0.0.zip"));if err!=nil {t.Fatal(err)};defer archive.Close()
+ for _, plugin:=range []struct{root,repo,id string}{{root,"aide-pkg-almanac","almanac"},{os.Getenv("LUNAR_SOURCE"),"aide-pkg-LunarCalendar","lunar-calendar"},{os.Getenv("TIME_SOURCE"),"aide-pkg-CurrentTime","current-time"}} {
+ manifestRaw,err:=os.ReadFile(filepath.Join(plugin.root,"manifest.json"));if err!=nil {t.Fatal(err)}
+ var manifest struct{Version string};if err=json.Unmarshal(manifestRaw,&manifest);err!=nil {t.Fatal(err)}
+ archive,err:=zip.OpenReader(filepath.Join(plugin.root,"packages/v"+manifest.Version,plugin.repo+"-v"+manifest.Version+".zip"));if err!=nil {t.Fatal(err)}
  entries:=map[string]string{}
  for _,file:=range archive.File {reader,err:=file.Open();if err!=nil {t.Fatal(err)};data,err:=io.ReadAll(reader);reader.Close();if err!=nil {t.Fatal(err)};entries[file.Name]=string(data)}
- requireStatus(t,pluginBundleRequest(t,a,entries),201)
+ archive.Close(); requireStatus(t,pluginBundleRequest(t,a,entries),201)
+ }
+ for _,test:=range []struct{id,tool string;args map[string]any}{{"lunar-calendar","get_lunar_date",map[string]any{"date":"2057-09-28"}},{"lunar-calendar","get_lunar_month",map[string]any{"year":2033,"month":12}},{"current-time","get_current_datetime",map[string]any{"timeZone":"Asia/Kolkata"}},{"current-time","get_week_number",map[string]any{"date":"2021-01-01"}}} {
+ if _,err:=a.callPluginTool(test.id,test.tool,test.args);err!=nil {t.Fatal(err)}
+ }
+ for _,id:=range []string{"lunar-calendar","current-time"} {tool:="get_lunar_date";if id=="current-time" {tool="get_week_number"};if _,err:=a.callPluginTool(id,tool,map[string]any{"date":nil});err==nil {t.Fatal("host accepted null date",id)}}
  if a.pluginOwnerOf("almanac_query")!="almanac" {t.Fatal("query tool not registered")}
  got,err:=a.callPluginTool("almanac","almanac_query",map[string]any{"date":"2023-03-22"});if err!=nil {t.Fatal(err)}
  raw,_:=json.Marshal(got);if !strings.Contains(string(raw),`"monthName":"闰二月"`) {t.Fatalf("unexpected host query: %s",raw)}

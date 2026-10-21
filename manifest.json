@@ -1,5 +1,24 @@
 {
- "id":"almanac", "name":"黄历", "description":"公历、农历与传统黄历：月历、节气、节日、每日宜忌及 Aide 只读查询", "version":"1.0.0", "author":"Skye Lan", "main":"index.js", "enabled":true,
- "settingsSchema":{"type":"object","properties":{},"additionalProperties":false,"description":"离线查询，今天按 Asia/Shanghai 计算，无需配置。"},
- "workbench":{"protocol":1,"entry":"workbench.html","title":"黄历工作台","tools":["almanac_query","almanac_month"]}
+  "id": "almanac",
+  "name": "黄历",
+  "description": "公历、农历与传统黄历：月历、节气、节日、每日宜忌及 Aide 只读查询",
+  "version": "1.1.0",
+  "author": "Skye Lan",
+  "main": "index.js",
+  "enabled": true,
+  "settingsSchema": {
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false,
+    "description": "离线查询，今天按 Asia/Shanghai 计算，无需配置。"
+  },
+  "workbench": {
+    "protocol": 1,
+    "entry": "workbench.html",
+    "title": "黄历工作台",
+    "tools": [
+      "almanac_query",
+      "almanac_month"
+    ]
+  }
 }

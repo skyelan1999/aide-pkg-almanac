@@ -15,7 +15,7 @@
 <section class="daily panel" aria-labelledby="daily-title"><div class="day-heading"><div><p class="eyebrow" id="selected-date">所选日期</p><h2 id="daily-title">每日黄历</h2><p id="lunar-title"></p></div><strong id="day-number" aria-hidden="true">—</strong></div><div id="day-tags" class="tags"></div>
 <div class="yi-ji"><section class="yi"><h3><span>宜</span> 诸事所宜</h3><div id="yi" class="chips"></div></section><section class="ji"><h3><span>忌</span> 诸事所忌</h3><div id="ji" class="chips"></div></section></div>
 <dl id="facts" class="facts"></dl><details class="more"><summary>更多黄历资料</summary><dl id="more-facts" class="facts"></dl></details></section></main>
-<footer class="page-footer"><span>本地历法 · 离线查询 · 与 Aide 工具同源</span><p>宜忌为传统民俗资料，非科学预测；不同流派可能有差异。节日名称不代表法定放假或调休安排。</p><small>历法来源 lunar-javascript 1.7.7 · MIT</small></footer></div><script>'use strict';
+<footer class="page-footer"><span>本地历法 · 离线查询 · 与 Aide 工具同源</span><p>宜忌为传统民俗资料，非科学预测；不同流派可能有差异。节日名称不代表法定放假或调休安排。</p><small>日期依据香港天文台历表 · 时刻为算法估算 · 民俗规则 lunar-javascript 1.7.7</small></footer></div><script>'use strict';
 // Bundle this source into a plugin HTML. Never load parent credentials or arbitrary host URLs.
 (function(){
  function create(pluginId){
@@ -77,7 +77,7 @@
   $('day-tags').replaceChildren();for(const text of [d.solarTerms.today,...d.festivals,h.officer+'日',h.guardian+' · '+h.guardianType]){if(text)$('day-tags').append(node('span','tag',text));}
   for(const [id,items] of [['yi',h.yi],['ji',h.ji]]){$(id).replaceChildren();for(const item of items.length?items:['暂无资料'])$(id).append(node('span','',item));}
   const facts=$('facts');facts.replaceChildren();fact(facts,'干支',d.ganzhi.year+'年 '+d.ganzhi.month+'月 '+d.ganzhi.day+'日');fact(facts,'冲煞',h.chong+' · '+h.sha);fact(facts,'彭祖百忌',h.pengzu.join('；'));fact(facts,'喜 / 财',h.directions.joy+' / '+h.directions.wealth);fact(facts,'节日',d.festivals.join(' · ')||'无（不含调休安排）');
-  const more=$('more-facts');more.replaceChildren();fact(more,'胎神',h.taiShen);fact(more,'吉神宜趋',h.auspiciousGods.join('、'));fact(more,'凶神宜忌',h.inauspiciousGods.join('、'));fact(more,'福神',h.directions.fortune);fact(more,'干支年界','立春；农历年以正月初一为界');fact(more,'当前节气',d.solarTerms.previous.name+' · '+d.solarTerms.previous.time+'（中国时间）');
+  const more=$('more-facts');more.replaceChildren();fact(more,'日期来源',d.source.dateAuthority.name+' · '+d.source.dateAuthority.retrieved);fact(more,'历表校验',d.checks.lunarEngineMatchesReference?'原引擎与历表一致':'原引擎有差异，已采用官方历表');for(const warning of d.warnings)fact(more,'提示',warning);fact(more,'胎神',h.taiShen);fact(more,'吉神宜趋',h.auspiciousGods.join('、'));fact(more,'凶神宜忌',h.inauspiciousGods.join('、'));fact(more,'福神',h.directions.fortune);fact(more,'干支年界','立春；农历年以正月初一为界');fact(more,'当前节气',d.solarTerms.previous.name+' · '+(d.solarTerms.previous.time||d.solarTerms.previous.date+'（仅日期）')+'（时刻为估算）');
   const next=d.solarTerms.next;$('next-term').textContent=(d.solarTerms.today?'今日 · '+d.solarTerms.today+'　｜　':'')+next.name+' · '+next.date;
  }
  $('go').onclick=()=>{if($('date').reportValidity())void load($('date').value);};

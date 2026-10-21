@@ -9,6 +9,9 @@
     "1901/2099 navigation boundaries",
     "1440/390 comfort/blue light/dark, no horizontal overflow",
     "manual theme and today",
+    "LunarCalendar official leap/2033/2057 dates, calendar keyboard and eight viewport/themes",
+    "CurrentTime ticking, timezones, ISO week, invalid zone recovery and eight viewport/themes",
+    "CurrentTime close stops calls",
     "tool failure message/retry recovery",
     "workbench close, no external browser requests or page errors"
   ],
